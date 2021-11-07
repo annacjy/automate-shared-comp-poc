@@ -4,10 +4,14 @@
   "description": "A proof of concept to watch dist folder change and copy to targeted node_modules folder",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
+  "bin": {
+    "dist-watch": "index.js"
+  },
   "dependencies": {
     "chokidar": "^3.5.2",
     "ncp": "^2.0.0"

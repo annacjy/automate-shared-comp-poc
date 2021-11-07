@@ -1,3 +1,5 @@
+#! /usr/bin/env node
+
 const chokidar = require('chokidar');
 const fs = require('fs');
 const ncp = require('ncp').ncp;
@@ -10,6 +12,8 @@ const config = JSON.parse(rawdata);
 chokidar.watch(config.source).on('all', (event, path) => {
   console.log(event, path);
  
+  ncp.limit = 16;
+
   ncp(config.source, config.destination, function (err) {
    if (err) {
      return console.error(err);
